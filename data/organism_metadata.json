@@ -1,0 +1,16 @@
+{
+  "name": "ComplexOrganism",
+  "birth_time": "2025-10-30T07:18:09.456062",
+  "state": "alive",
+  "execution_count": 1,
+  "adaptations": [
+    {
+      "time": "2025-10-30T07:18:09.540776",
+      "trait": "Adaptive",
+      "dominant_state": "000",
+      "probability": 0.506591796875
+    }
+  ],
+  "circuit_depth": 3,
+  "circuit_width": 3
+}
