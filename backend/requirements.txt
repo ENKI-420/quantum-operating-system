@@ -1,0 +1,13 @@
+# FastAPI and core dependencies
+fastapi
+uvicorn
+pydantic
+
+numpy
+rustworkx
+rich
+qiskit>=1.0.0
+qiskit-aer
+qiskit-algorithms
+qiskit-nature
+pyscf

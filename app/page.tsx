@@ -1,80 +1,149 @@
-import { IBMIntegrationFramework } from "@/components/ibm-integration-framework"
-import { Button } from "@/components/ui/button"
+"use client"
+
 import Link from "next/link"
-import { MobileFirstNavigation } from "@/components/mobile-first-navigation"
-import { AIAssistant } from "@/components/ai-assistant"
-import { AccessibilityToolbar } from "@/components/accessibility-toolbar"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Navigation } from "@/components/Navigation"
 
-export default function Home() {
+export default function HomePage() {
+  const features = [
+    {
+      title: "Quantum Lab",
+      description:
+        "Run quantum experiments with AIDEN AI assistant. Execute circuits, monitor jobs, and analyze results in real-time.",
+      href: "/quantum",
+      metric: "5+ Algorithms",
+      icon: "⚛️",
+    },
+    {
+      title: "DNA-Lang Platform",
+      description:
+        "Visualize organism states with Gemini-powered insights. Generate documentation and analyze quantum DNA structures.",
+      href: "/dna-lang",
+      metric: "AI-Powered",
+      icon: "🧬",
+    },
+    {
+      title: "Research Dashboard",
+      description:
+        "Autonomous experiment orchestration with auto-enhancement. Monitor breakthroughs and optimize parameters automatically.",
+      href: "/research",
+      metric: "Auto-Optimize",
+      icon: "🔬",
+    },
+  ]
+
   return (
-    <main className="min-h-screen bg-background">
-      <MobileFirstNavigation />
-      <AIAssistant />
-      <AccessibilityToolbar />
+    <div className="min-h-screen bg-background">
+      <Navigation />
 
-      {/* Mobile-first layout with proper spacing */}
-      <div className="pb-20 md:pb-0 md:ml-64">
-        <IBMIntegrationFramework />
-      </div>
-      <div className="fixed top-4 right-4 z-50 flex gap-2 flex-wrap">
-        <Link href="/production-readiness">
-          <Button className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700">
-            Production Readiness
-          </Button>
-        </Link>
-        <Link href="/error-monitoring">
-          <Button className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700">
-            Error Monitoring
-          </Button>
-        </Link>
-        <Link href="/user-management">
-          <Button className="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700">
-            User Management
-          </Button>
-        </Link>
-        <Link href="/cicd-testing">
-          <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700">
-            CI/CD & Testing
-          </Button>
-        </Link>
-        <Link href="/performance-optimization">
-          <Button className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700">
-            Performance
-          </Button>
-        </Link>
-        {/* End of new navigation button */}
-        <Link href="/quantum-platform">
-          <Button className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700">
-            Quantum Platform
-          </Button>
-        </Link>
-        <Link href="/analytics">
-          <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
-            Analytics
-          </Button>
-        </Link>
-        <Link href="/strategic-plan">
-          <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-            Strategic Plan
-          </Button>
-        </Link>
-        <Link href="/security">
-          <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700">
-            Security
-          </Button>
-        </Link>
-        <Link href="/carbon">
-          <Button className="bg-blue-600 hover:bg-blue-700">Carbon Design Demo</Button>
-        </Link>
-        <Link href="/assessment">
-          <Button
-            variant="outline"
-            className="border-purple-500/50 text-purple-400 hover:bg-purple-950/50 bg-transparent"
-          >
-            Technical Assessment
-          </Button>
-        </Link>
-      </div>
-    </main>
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-24 md:py-32">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance">
+            The complete platform for{" "}
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              quantum computing
+            </span>{" "}
+            research.
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
+            Accelerate scientific breakthroughs with autonomous experiments, AI-powered insights, and self-optimizing
+            quantum algorithms.
+          </p>
+          <div className="flex items-center justify-center gap-4">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg h-12 px-8">
+              Start Experimenting
+            </Button>
+            <Button size="lg" variant="outline" className="text-lg h-12 px-8 bg-transparent">
+              View Documentation
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          {[
+            { value: "10x", label: "faster", sublabel: "experiment iteration" },
+            { value: "95%", label: "accuracy", sublabel: "in predictions" },
+            { value: "24/7", label: "autonomous", sublabel: "operation" },
+            { value: "∞", label: "scalable", sublabel: "quantum circuits" },
+          ].map((stat, i) => (
+            <Card key={i} className="bg-card border-border">
+              <CardContent className="p-6">
+                <div className="text-4xl font-bold text-primary mb-1">{stat.value}</div>
+                <div className="text-lg font-medium">{stat.label}</div>
+                <div className="text-sm text-muted-foreground">{stat.sublabel}</div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="container mx-auto px-4 py-24">
+        <div className="max-w-6xl mx-auto space-y-12">
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl font-bold">Accelerate your research.</h2>
+            <p className="text-xl text-muted-foreground">
+              Three powerful platforms working together to advance quantum computing.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {features.map((feature) => (
+              <Link key={feature.href} href={feature.href}>
+                <Card className="bg-card border-border hover:border-primary transition-all h-full group cursor-pointer">
+                  <CardHeader>
+                    <div className="text-4xl mb-4">{feature.icon}</div>
+                    <CardTitle className="text-2xl group-hover:text-primary transition-colors">
+                      {feature.title}
+                    </CardTitle>
+                    <CardDescription className="text-base">{feature.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="inline-flex items-center gap-2 text-sm font-medium text-primary">
+                      {feature.metric}
+                      <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="container mx-auto px-4 py-24">
+        <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 max-w-4xl mx-auto">
+          <CardContent className="p-12 text-center space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold">Ready to advance quantum science?</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Join researchers using Quantum OS to accelerate breakthroughs in quantum computing, materials science, and
+              beyond.
+            </p>
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg h-12 px-8">
+              Get Started Free
+            </Button>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border mt-24">
+        <div className="container mx-auto px-4 py-12">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-primary to-accent" />
+              <span className="font-bold">Quantum OS</span>
+            </div>
+            <div className="text-sm text-muted-foreground">© 2025 Quantum OS. Powered by DNALang v2.5</div>
+          </div>
+        </div>
+      </footer>
+    </div>
   )
 }
